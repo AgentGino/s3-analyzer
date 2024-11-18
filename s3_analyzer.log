@@ -1,0 +1,160 @@
+2024-11-17 11:13:55,092 - s3_analyzer - DEBUG - Initialized S3 client with profile=None, region=us-east-1
+2024-11-17 11:13:55,096 - s3_analyzer - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/src/s3_analyzer/cli.py", line 32, in main
+    results = analyzer.analyze_all_buckets()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/src/s3_analyzer/core/analyzer.py", line 83, in analyze_all_buckets
+    response = self.s3_client.list_buckets()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/client.py", line 569, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/client.py", line 1005, in _make_api_call
+    http, parsed_response = self._make_request(
+                            ^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/client.py", line 1029, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/endpoint.py", line 119, in make_request
+    return self._send_request(request_dict, operation_model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/endpoint.py", line 196, in _send_request
+    request = self.create_request(request_dict, operation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/endpoint.py", line 132, in create_request
+    self._event_emitter.emit(
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/signers.py", line 105, in handler
+    return self.sign(operation_name, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/signers.py", line 188, in sign
+    auth = self.get_auth_instance(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/signers.py", line 306, in get_auth_instance
+    frozen_credentials = credentials.get_frozen_credentials()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/credentials.py", line 634, in get_frozen_credentials
+    self._refresh()
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/credentials.py", line 522, in _refresh
+    self._protected_refresh(is_mandatory=is_mandatory_refresh)
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/credentials.py", line 538, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/credentials.py", line 685, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/credentials.py", line 695, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/credentials.py", line 2152, in _get_credentials
+    token = self._token_loader(self._start_url)['accessToken']
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/venv/lib/python3.12/site-packages/botocore/utils.py", line 3350, in __call__
+    raise SSOTokenLoadError(error_msg=error_msg)
+botocore.exceptions.SSOTokenLoadError: Error loading SSO Token: Token for https://d-90678425fa.awsapps.com/start/# does not exist
+2024-11-17 11:14:04,727 - s3_analyzer - DEBUG - Initialized S3 client with profile=admin, region=us-east-1
+2024-11-17 11:14:04,991 - s3_analyzer - INFO - Starting analysis of 1 buckets
+2024-11-17 11:14:04,996 - s3_analyzer - DEBUG - Starting analysis of bucket: storage-for-cfn-stacks
+2024-11-17 11:14:05,262 - s3_analyzer - INFO - Successfully analyzed bucket storage-for-cfn-stacks: 11 files
+2024-11-17 11:14:05,267 - s3_analyzer - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/src/s3_analyzer/cli.py", line 36, in main
+    print_table(results)
+    ^^^^^^^^^^^
+NameError: name 'print_table' is not defined
+2024-11-17 11:15:32,858 - s3_analyzer - DEBUG - Initialized S3 client with profile=admin, region=us-east-1
+2024-11-17 11:15:33,106 - s3_analyzer - INFO - Starting analysis of 1 buckets
+2024-11-17 11:15:33,110 - s3_analyzer - DEBUG - Starting analysis of bucket: storage-for-cfn-stacks
+2024-11-17 11:15:33,464 - s3_analyzer - INFO - Successfully analyzed bucket storage-for-cfn-stacks: 11 files
+2024-11-17 11:15:45,218 - s3_analyzer - DEBUG - Initialized S3 client with profile=admin, region=us-east-1
+2024-11-17 11:15:45,404 - s3_analyzer - INFO - Starting analysis of 1 buckets
+2024-11-17 11:15:45,408 - s3_analyzer - DEBUG - Starting analysis of bucket: storage-for-cfn-stacks
+2024-11-17 11:15:45,707 - s3_analyzer - INFO - Successfully analyzed bucket storage-for-cfn-stacks: 11 files
+2024-11-17 11:17:36,969 - s3_analyzer - DEBUG - Initialized S3 client with profile=None, region=us-east-1
+2024-11-17 11:17:36,974 - s3_analyzer - ERROR - Unexpected error occurred: Error loading SSO Token: Token for https://d-90678425fa.awsapps.com/start/# does not exist
+2024-11-17 11:19:29,533 - s3_analyzer - DEBUG - Initialized S3 client with profile=admin, region=us-east-1
+2024-11-17 11:19:29,857 - s3_analyzer - INFO - Starting analysis of 1 buckets
+2024-11-17 11:19:29,862 - s3_analyzer - DEBUG - Starting analysis of bucket: storage-for-cfn-stacks
+2024-11-17 11:19:30,160 - s3_analyzer - INFO - Successfully analyzed bucket storage-for-cfn-stacks: 11 files
+2024-11-17 11:29:45,710 - s3_analyzer - DEBUG - Starting analysis with rate_limit=5, batch_size=50
+2024-11-17 11:29:46,451 - s3_analyzer - ERROR - Unexpected error occurred: unable to render datetime; a string or other renderable object is required
+2024-11-17 11:31:02,653 - s3_analyzer - DEBUG - Starting analysis with rate_limit=5, batch_size=50
+2024-11-17 21:24:15,253 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=()
+2024-11-17 21:24:15,256 - s3_analyzer - ERROR - Unexpected error occurred: S3Analyzer.__init__() got an unexpected keyword argument 'bucket_patterns'
+2024-11-17 21:26:42,699 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=()
+2024-11-17 21:26:42,702 - s3_analyzer - ERROR - Unexpected error occurred: S3Analyzer.__init__() got an unexpected keyword argument 'bucket_patterns'
+2024-11-17 21:28:00,606 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=()
+2024-11-17 21:28:00,609 - s3_analyzer - ERROR - Unexpected error occurred: S3Analyzer.__init__() got an unexpected keyword argument 'bucket_patterns'
+2024-11-17 21:28:43,000 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=()
+2024-11-17 21:29:05,253 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('xero',), paths=()
+2024-11-17 21:29:21,001 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('xero',), paths=()
+2024-11-17 21:32:17,404 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('xero',), paths=()
+2024-11-17 21:32:17,415 - s3_analyzer - ERROR - Unexpected error occurred: 'S3Analyzer' object has no attribute 'analyze_all'
+2024-11-17 21:32:50,414 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('xero',), paths=()
+2024-11-17 21:32:50,425 - s3_analyzer - ERROR - Unexpected error occurred: 'coroutine' object is not iterable
+2024-11-17 21:35:32,309 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('xero',), paths=()
+2024-11-17 21:35:46,834 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=()
+2024-11-17 21:36:04,006 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=('/admin',)
+2024-11-17 21:36:45,462 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=('/admin',)
+2024-11-17 21:36:54,149 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=('/',)
+2024-11-17 21:37:02,837 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=(), paths=()
+2024-11-17 21:41:46,351 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('storage-for-cfn-stacks',), paths=()
+2024-11-17 21:41:56,302 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('storage-for-cfn-stacks,zeno',), paths=()
+2024-11-17 21:42:40,776 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('storage-for-cfn-stacks,zeno',), paths=()
+2024-11-17 21:46:53,503 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:25:02,291 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:25:09,352 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:25:21,165 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:25:42,027 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:25:50,323 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:26:02,268 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:26:20,760 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:26:25,562 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:26:31,654 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=[]
+2024-11-17 22:26:54,152 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:28:29,411 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:28:48,935 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:35:39,195 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:35:47,286 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:36:02,941 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:36:32,392 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:37:10,582 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:37:11,664 - s3_analyzer - ERROR - Error: 'encryption'
+2024-11-17 22:37:11,667 - s3_analyzer - ERROR - Detailed error trace:
+Traceback (most recent call last):
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/src/s3_analyzer/cli.py", line 112, in main
+    print_table(results)
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/src/s3_analyzer/cli.py", line 52, in print_table
+    r['encryption'],
+    ~^^^^^^^^^^^^^^
+KeyError: 'encryption'
+2024-11-17 22:37:49,659 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:44:19,320 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:47:01,957 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:47:19,394 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:47:44,202 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=['storage-for-cfn-stacks', 'zeno'], paths=['bash']
+2024-11-17 22:49:20,610 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('storage-for-cfn-stacks,zeno',), paths=('bash',), filters=()
+2024-11-17 22:49:30,966 - s3_analyzer - DEBUG - Starting analysis with filters: buckets=('storage-for-cfn-stacks,zeno',), paths=('bash',), filters=()
+2024-11-17 22:54:01,650 - s3_analyzer - ERROR - Analysis failed: S3Analyzer.__init__() got an unexpected keyword argument 'timeout'
+2024-11-17 22:54:01,653 - s3_analyzer - ERROR - Detailed error trace:
+Traceback (most recent call last):
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/src/s3_analyzer/cli.py", line 128, in main
+    analyzer = S3Analyzer(
+               ^^^^^^^^^^^
+TypeError: S3Analyzer.__init__() got an unexpected keyword argument 'timeout'
+2024-11-17 22:55:09,737 - s3_analyzer - ERROR - Analysis failed: name 'format_datetime' is not defined
+2024-11-17 22:55:09,744 - s3_analyzer - ERROR - Detailed error trace:
+Traceback (most recent call last):
+  File "/Users/himakarreddy/Downloads/challenge-2022-02-14/s3_analyzer/src/s3_analyzer/cli.py", line 156, in main
+    'last_modified': format_datetime(r.get('last_modified'))
+                     ^^^^^^^^^^^^^^^
+NameError: name 'format_datetime' is not defined

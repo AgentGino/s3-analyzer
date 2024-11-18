@@ -1,0 +1,54 @@
+[project]
+name = "s3_analyzer"
+version = "0.1.0"
+description = "AWS S3 Bucket Analyzer with performance optimizations"
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.0.0",
+    "boto3>=1.26.0",
+    "aioboto3>=11.0.0",    # Async AWS operations
+    "rich>=13.0.0",        # Terminal formatting
+    "PyYAML>=6.0.0",       # Config handling
+    "aiohttp>=3.8.0",      # Async HTTP
+    "asyncio>=3.4.3",      # Async support
+    "tqdm>=4.65.0",        # Progress bars
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.23.0",   # Async test support
+    "pytest-cov>=4.1.0",        # Coverage reporting
+    "moto>=4.0.0",             # AWS mocking
+    "black>=22.0.0",           # Code formatting
+    "isort>=5.0.0",           # Import sorting
+    "mypy>=1.0.0",            # Type checking
+    "flake8>=6.0.0"           # Linting
+]
+
+[project.scripts]
+s3-analyzer = "s3_analyzer.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=s3_analyzer --cov-report=term-missing"
