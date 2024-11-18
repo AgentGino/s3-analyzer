@@ -193,9 +193,11 @@ Required IAM permissions:
 
 ## TODO
 - [ ] Add support for filtering by storage class
-- [ ] Unit Tests
 - [ ] Explicit Disabling analytics on bucket items
 - [ ] Cost Analysis
+- [ ] Parallel processing
+- [ ] Unit Tests
+
 
 ## Contributing
 
